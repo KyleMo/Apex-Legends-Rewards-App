@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url('thumb-1920-992033.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the Navigation bar*/
+/*-------------------------------------------*/
+
+.nav-bar {
+  font-size: 1em;
+  position: sticky;
+  background-color: rgba(52, 52, 52, 1);
+  color: white;
+}
+
+.nav-components {
+  margin-left: 3%;
+  margin-right: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apex-components {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+#apex-logo {
+  margin-right: 10%;
+}
+
+.main-links {
+  padding:0;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: rgba(208, 26, 26, 1);
+  transition: all .1s ease-in-out;
+}
+
+
+#my-profile {
+  margin-left: 3%;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the search bar
+/*-------------------------------------------*/
+
+.main-content{
+  display: flex;
+  justify-content: center;
+}
+
+.userInputForm {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  align-items: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.platformIconButtons {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.06);
+  display: flex;
+}
+
+.platformID {
+  height: 95%;
+  width: 100%;
+  margin-right: 5px;
+  border-radius: 0;
+}
+
+.platformIconButtons:hover{
+  cursor: pointer;
+}
+
+.platform-icon-btn {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0);
+}
+
+.platform-icon-btn:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.platform-icon-btn img {
+  height: 30px;
+  width: 30px;
+  margin: 0;
+}
+
+#gamerTag {
+  font-size: 18px;
+  width: 99.5%;
+  height: 100%;
+  border: none;
+  background-color: white;
+  padding-left: 5px;
+}
+
+#submit-search {
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.06);
+  height: 50px;
+  color: white;
+}
+
+#submit-search:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+#gamerTag:focus {
+  outline: none;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the displaying of last five games
+/*-------------------------------------------*/
