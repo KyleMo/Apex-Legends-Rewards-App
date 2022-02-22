@@ -11,20 +11,22 @@
       <section class="nav-components">
         <div class="apex-components">
           <img id="apexLogo" style="width: 30px" src="apexLogo.svg" alt="">
-          <h2 style="display:inline;">Apex Legends</h2>
+          <h2 id="apexName" style="display:inline;">Apex Legends</h2>
         </div>
         <ul class="main-links">
           <li><a id="get-rewards" class="link" href="#">Get Rewarded</a></li>
           <li id="my-profile"><a class="link" href="#">My Profile</a></li>
         </ul>
-        <h2 id="log-in-sign-up"><a style="color:white; text-decoration: none" href="#">Log in/Sign up</a></h2>
+        <h2 id="log-in-sign-up"><a style="font-size: 1rem; color:white; text-decoration: none" href="#">Log in/Sign up</a></h2>
       </section>
     </nav>
+
     <section class="hero-text">
-      <h1>Get rewarded for doing well playing Apex Legends!</h1>
-      <h2>Type in your platform and username to see if you performed well enough in your last five games for a reward</h2>
+      <h1 id="hero-message">Play Apex Legends and get rewarded!</h1>
+      <h2 class="search-instructions">Select your platform then type in your username.</h2>
     </section>
 
+    <section class="main-content">
       <form class="userInputForm" action="index.html" method="post">
         <div class="platformIconButtons">
           <button class="platform-icon-btn" id="psn" value="psn" type="button" name="PlayStation Network"><img src="ps4.svg" alt="PSN"></button>
@@ -41,8 +43,10 @@
       </form>
     </section>
 
+    <section id="matches">
+    </section>
 
-  <script src="server.js">
+  <script src="rewardFunctionality.js">
 
   </script>
   </body>
