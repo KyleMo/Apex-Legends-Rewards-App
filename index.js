@@ -1,5 +1,12 @@
 const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
 
-app.get('/',function(req,res) {
-  res.sendFile('/Users/kylemonstad/Desktop/GamingProject/views/pages/Homepage.html')
+router.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/index.html'));
+
 });
+
+app.use('/', router);
+app.listen(process.env.port || 3000);
