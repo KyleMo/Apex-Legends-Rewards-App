@@ -104,9 +104,9 @@ function createLastFiveMatchesInDom(arr){
   if (arr.length === 0){
     const noMatchsWarning = document.createElement('h3');
     noMatchsWarning.innerText = "There are matches found on this account."
-    noMatchsWarning.styles.textAlign = "center;"
+    noMatchsWarning.classList.add("noMatchsWarningStyles")
     document.querySelector('.main-content').insertAdjacentElement('afterend',noMatchsWarning);
-    //create a h3 element that appears below search bar - "No matches played"
+
     return null;
   }
 

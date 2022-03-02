@@ -1,0 +1,20 @@
+{
+  "name": "gamingproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rewardFunctionality.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleMo/Apex-Legends-Rewards-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleMo/Apex-Legends-Rewards-App/issues"
+  },
+  "homepage": "https://github.com/KyleMo/Apex-Legends-Rewards-App#readme"
+}
