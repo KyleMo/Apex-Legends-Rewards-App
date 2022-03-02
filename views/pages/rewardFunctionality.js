@@ -1,5 +1,5 @@
 //should this be defined globally?
-
+console.log("here")
 let platform = "psn";
 let platformUserIdentifier = "";
 let previousPUI = "";
