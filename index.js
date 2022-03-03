@@ -5,7 +5,7 @@ const router = express.Router();
 const PORT = 8080;
 
 router.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname+'/views'+'pages'+'index.html'));
+  res.sendFile(path.join(__dirname+'/views'+'/pages'+'/Homepage.html'));
 })
 
 /*
