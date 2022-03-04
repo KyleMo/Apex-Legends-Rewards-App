@@ -5,18 +5,9 @@ const app = express();
 const router = express.Router();
 const PORT = 8082;
 
-const corsOptions ={
-   origin:'*',
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
 
 app.use(express.static('public'));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", `http://localhost:${PORT}`);
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-});
 
 app.get('/',(req,res) => {
   res.sendFile(path.join(__dirname,'/public'+'/Homepage.html'));
