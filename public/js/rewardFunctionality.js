@@ -71,14 +71,17 @@ async function getData(platform, platformUserIdentifier) {
 
     let myHeaders = new Headers();
     myHeaders.append("TRN-Api-Key", "c3156608-1896-4485-87ce-37a467e40a42");
+    myHeaders.append('Access-Control-Allow-Origin', 'http://localhost:8082');
+    myHeaders.append('Access-Control-Allow-Credentials', 'true');
+
     let requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'follow'
+      redirect: 'follow',
     };
 
     try {
-      const response = await fetch(`https://public-api.tracker.gg/v2/apex/standard/profile/${platform}/${platformUserIdentifier}/sessions`
+      const response = await fetch(`https://apex-proxy-serve.herokuapp.com/https://public-api.tracker.gg/v2/apex/standard/profile/${platform}/${platformUserIdentifier}/sessions`
             ,requestOptions);
       const apiData = await response.json();
       createLastFiveMatchesInDom(getLastFiveMatches(apiData))

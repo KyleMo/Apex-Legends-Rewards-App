@@ -1,9 +1,8 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 const app = express();
 const router = express.Router();
-const PORT = 8082;
+const PORT = 8080;
 
 app.use(express.static('public'));
 
