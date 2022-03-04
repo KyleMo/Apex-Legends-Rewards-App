@@ -5,11 +5,9 @@ const app = express();
 const router = express.Router();
 const PORT = 8082;
 
-
 app.use(express.static('public'));
 
-
-app.get('/',(req,res) => {
+router.get('/',(req,res) => {
   res.sendFile(path.join(__dirname,'/public'+'/Homepage.html'));
 })
 
