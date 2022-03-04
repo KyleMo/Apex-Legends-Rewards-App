@@ -1,5 +1,4 @@
-//should this be defined globally?
-console.log("here")
+
 let platform = "psn";
 let platformUserIdentifier = "";
 let previousPUI = "";
@@ -79,7 +78,7 @@ async function getData(platform, platformUserIdentifier) {
     };
 
     try {
-      const response = await fetch(`https://cors-anywhere.herokuapp.com/https://public-api.tracker.gg/v2/apex/standard/profile/${platform}/${platformUserIdentifier}/sessions`
+      const response = await fetch(`https://public-api.tracker.gg/v2/apex/standard/profile/${platform}/${platformUserIdentifier}/sessions`
             ,requestOptions);
       const apiData = await response.json();
       createLastFiveMatchesInDom(getLastFiveMatches(apiData))

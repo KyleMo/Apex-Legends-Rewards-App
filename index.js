@@ -1,11 +1,25 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const app = express();
 const router = express.Router();
-const PORT = 8080;
+const PORT = 8082;
 
-router.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname+'/views'+'/pages'+'/Homepage.html'));
+const corsOptions ={
+   origin:'*',
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", `http://localhost:${PORT}`);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+});
+
+app.get('/',(req,res) => {
+  res.sendFile(path.join(__dirname,'/public'+'/Homepage.html'));
 })
 
 /*
@@ -68,5 +82,5 @@ app.get('/g/:game', (req, res) => {
  })
 
 */
-
+app.use('/', router);
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
