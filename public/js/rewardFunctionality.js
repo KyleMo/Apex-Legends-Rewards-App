@@ -11,6 +11,9 @@ const psn = document.querySelector('#psn'),
 
 
 psn.addEventListener('click', (event) => {
+  if (document.querySelector('.notFound') != null){
+    document.querySelector('.notFound').remove();
+  }
   platform = "psn";
   psn.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
   psn.style.borderRadius = "10px"
@@ -19,6 +22,9 @@ psn.addEventListener('click', (event) => {
   searchText.placeholder = "Enter PlayStation Network Username";
 })
 xbl.addEventListener('click', (event) => {
+  if (document.querySelector('.notFound') != null){
+    document.querySelector('.notFound').remove();
+  }
   platform = "xbl";
   xbl.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
   xbl.style.borderRadius = "10px";
@@ -27,6 +33,9 @@ xbl.addEventListener('click', (event) => {
   searchText.placeholder = "Enter Xbox Live Username";
 })
 origin.addEventListener('click', (event) => {
+  if (document.querySelector('.notFound') != null){
+    document.querySelector('.notFound').remove();
+  }
   platform = "origin";
   xbl.style.backgroundColor = "rgba(0, 0, 0, 0)";
   origin.style.borderRadius = "10px";
