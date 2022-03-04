@@ -11,9 +11,7 @@ const psn = document.querySelector('#psn'),
 
 
 psn.addEventListener('click', (event) => {
-  if (document.querySelector('.notFound') != null){
-    document.querySelector('.notFound').remove();
-  }
+
   platform = "psn";
   psn.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
   psn.style.borderRadius = "10px"
@@ -22,9 +20,7 @@ psn.addEventListener('click', (event) => {
   searchText.placeholder = "Enter PlayStation Network Username";
 })
 xbl.addEventListener('click', (event) => {
-  if (document.querySelector('.notFound') != null){
-    document.querySelector('.notFound').remove();
-  }
+
   platform = "xbl";
   xbl.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
   xbl.style.borderRadius = "10px";
@@ -33,9 +29,7 @@ xbl.addEventListener('click', (event) => {
   searchText.placeholder = "Enter Xbox Live Username";
 })
 origin.addEventListener('click', (event) => {
-  if (document.querySelector('.notFound') != null){
-    document.querySelector('.notFound').remove();
-  }
+
   platform = "origin";
   xbl.style.backgroundColor = "rgba(0, 0, 0, 0)";
   origin.style.borderRadius = "10px";
@@ -53,6 +47,9 @@ document.querySelector('#gamerTag').addEventListener('change', (event) => {
   platformUserIdentifier = event.target.value;
 });
 document.querySelector('#submit-search').addEventListener('click', (event) => {
+  if (document.querySelector('.notFound') != null){
+    document.querySelector('.notFound').remove();
+  }
   if (platformUserIdentifier === ""){
     alert("Please enter the gamertag for your " + document.querySelector("#"+platform).name + " account.")
   }
@@ -69,6 +66,10 @@ document.querySelector('#submit-search').addEventListener('click', (event) => {
 
 async function getData(platform, platformUserIdentifier) {
     if (platformUserIdentifier === previousPUI && platform === previousPlat){
+      console.log(platformUserIdentifier);
+      console.log(previousPUI);
+      console.log(platform);
+      console.log(previousPlat);
       return;
     }
     //Testing if previousPUI is not "" is needed because after the first search, it
@@ -106,6 +107,8 @@ async function getData(platform, platformUserIdentifier) {
       accountNotFound.innerText = "Account was not found. Please ensure you typed the username in correctly and selected the correct platform."
       document.querySelector('.main-content').insertAdjacentElement('afterend',quickContainer);
       quickContainer.appendChild(accountNotFound)
+      previousPUI = platformUserIdentifier;
+      previousPlat = platform;
     }
 
 }
