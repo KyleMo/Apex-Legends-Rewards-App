@@ -1,0 +1,114 @@
+.table-container {
+  max-width: 1500px;
+  width: 80%;
+  position: relative;
+  margin: 4% 0;
+  border-radius: 10px;
+}
+
+.reward-button {
+  width: 60%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.matches-table {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  padding: 1px 3px;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  border-radius: 30%;
+  z-index: 3;
+}
+
+.close-button:hover {
+  cursor: pointer;
+  color:black;
+  background-color: white;
+}
+
+td, th {
+  padding: 12px 15px;
+}
+
+th {
+  background-color: #c4392f;
+  color: white;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.matches-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.matches-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+@media screen and (max-width: 650px) {
+
+
+    .reward-button {
+      width: 70%;
+      font-size: 2vw;
+      font-weight: bold;
+      padding: 2px;
+    }
+
+    .matches-table {
+      font-size: 11px;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      color: black;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-button {
+      font-size: 15px;
+      color: white;
+      text-align: center;
+      padding: 1px 3px;
+      position: absolute;
+      top: 3px;
+      right: 5px;
+      border-radius: 30%;
+      z-index: 3;
+    }
+
+    td, th {
+      padding: 2vw .5vw;
+    }
+
+    .hero {
+      padding: 1vw 0;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+}

@@ -1,0 +1,119 @@
+.userInputForm {
+  max-width: 1000px;
+  min-width: 250px;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  align-items: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.platformIconButtons {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+
+}
+
+.platformID {
+  width: 100%;
+  margin-right: 5px;
+}
+
+.platformIconButtons:hover{
+  cursor: pointer;
+}
+
+.platform-icon-btn {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0);
+}
+
+.platform-icon-btn-dark {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.platform-icon-btn:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+img {
+  height: 30px;
+  width: 30px;
+  margin: 0;
+}
+
+#gamerTag {
+  font-size: 18px;
+  width: 99%;
+  height: 30px;
+  background-color: white;
+  padding-left: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+#submit-search {
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.06);
+  height: 50px;
+  color: white;
+}
+
+#submit-search:hover {
+  cursor: pointer;
+  color: rgba(208, 26, 26, 1);
+}
+
+#gamerTag:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 450px) {
+
+  .platform-icon-btn {
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 0;
+    background-color: rgba(0,0,0,0);
+  }
+
+  .platform-icon-btn-dark {
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+
+  .platform-icon-btn:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+  }
+
+}

@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url('/images/thumb-1920-992033.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the Navigation bar*/
+/*-------------------------------------------*/
+
+.nav-bar {
+  font-size: 1em;
+  position: sticky;
+  background-color: rgba(52, 52, 52, 1);
+  color: white;
+  height: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.nav-components {
+  height: 100%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apex-components {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+#apexName {
+  margin: 0 0 0 10px;
+  padding: 0;
+  font-size: 1em;
+}
+
+.main-links {
+  margin: 0;
+  padding:0;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  text-align: center;
+}
+
+.link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: rgba(208, 26, 26, 1);
+  transition: all .1s ease-in-out;
+}
+
+#my-profile {
+  margin-left: 3%;
+}
+
+#log-in-sign-up {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the hero section bar*/
+/*-------------------------------------------*/
+
+.hero-text {
+  color: white;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#hero-message {
+  font-size: 3em;
+  text-align: center;
+  margin: 30px;
+}
+
+.search-instructions {
+  min-width: 200px;
+  margin: 2px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
+  width: 25%;
+  font-size: .75em;
+  text-align: center;
+  color: white;
+  padding: 3px;
+}
+
+
+/*-------------------------------------------*/
+/* All Classes relating to the search bar
+/*-------------------------------------------*/
+
+.main-content {
+  display: flex;
+  justify-content: center;
+}
+
+.userInputForm {
+  max-width: 1000px;
+  min-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  align-items: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.platformIconButtons {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.06);
+  display: flex;
+}
+
+.platformID {
+  width: 100%;
+  margin-right: 5px;
+}
+
+.platformIconButtons:hover{
+  cursor: pointer;
+}
+
+.platform-icon-btn {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0);
+}
+
+.platform-icon-btn:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.platform-icon-btn img {
+  height: 30px;
+  width: 30px;
+  margin: 0;
+}
+
+#gamerTag {
+  font-size: 18px;
+  width: 99%;
+  height: 30px;
+  background-color: white;
+  padding-left: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+#submit-search {
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.06);
+  height: 50px;
+  color: white;
+}
+
+#submit-search:hover {
+  cursor: pointer;
+  color: rgba(208, 26, 26, 1);
+
+}
+
+#gamerTag:focus {
+  outline: none;
+}
+
+/*-------------------------------------------*/
+/* All Classes relating to the displaying of last five games
+/*-------------------------------------------*/
+
+.notFound {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 15px;
+  border-radius: 7px;
+  padding: 3px;
+  width: 60%;
+}
+.notFoundSec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#matches {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.matchTableStyles {
+  max-width: 1500px;
+  min-width: 500px;
+  width: 75%;
+  border-collapse: collapse;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.headerRow {
+  border-radius: 5px;
+  background-color: grey;
+  color: white;
+}
+
+.noMatchsWarningStyles {
+  background: black;
+  text-align: center;
+}
