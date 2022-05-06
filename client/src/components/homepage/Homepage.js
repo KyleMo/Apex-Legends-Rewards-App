@@ -94,8 +94,8 @@ const displayMatchRows = matches.map((match,index) => {
 
   //dummy data to populate if reward is available
   function checkRewardAvailability(match){
-    const value = Math.random()
-    if (value <= .5) {
+
+    if (match.stats.kills.value <= .5) {
       return true
     } else {
       return false
