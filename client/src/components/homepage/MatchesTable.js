@@ -2,6 +2,8 @@ import React from 'react';
 import './matchestable.css'
 
 const MatchesTable = (props) => {
+
+
   return (
     <div className="table-container">
       <div onClick={props.handleCloseClick} className="close-button">&#10006;</div>

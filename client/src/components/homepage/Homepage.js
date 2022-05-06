@@ -19,7 +19,6 @@ const Homepage = () => {
   const [matches, setMatches] = React.useState([])
   const [validInput, setValidInput] = React.useState(true);
 
-
 //Handling functions
 
   const handleCloseClick = () => {
@@ -115,7 +114,7 @@ const displayMatchRows = matches.map((match,index) => {
 })
 
   return (
-    <section className={displayTable?"main-content-2":"main-content-1"}>
+    <section className="main-content-1">
         <h1 className="hero">Play Apex Legends and get rewarded!</h1>
         <p className="instructions">Select your platform (ex: Origin) then type in your username (ex: chaoticbutpc).</p>
         <Searchbar
