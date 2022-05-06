@@ -1,6 +1,7 @@
 .error-message {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: bold;
+  color: white;
   width: 25%;
   background-color: #c4392f;
   margin: 20px;

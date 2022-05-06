@@ -11,8 +11,9 @@ require('dotenv').config();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/data',(req,res) => {
-  const passedPlatform = "origin"//req.query.platform;
-  const passedUsername = "KeonTwitch"//req.query.username;console.log(process.env);
+  const passedPlatform = req.query.platform;
+  const passedUsername = req.query.username;
+  
   axios.get(`https://public-api.tracker.gg/v2/apex/standard/profile/${passedPlatform}/${passedUsername}/sessions`,{
     headers: {"TRN-Api-Key": process.env.REACT_APP_RAPID_API_KEY,
               "Accept": "application/json",
