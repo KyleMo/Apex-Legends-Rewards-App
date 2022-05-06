@@ -3,6 +3,7 @@ import styles from './homepage.css'
 import Searchbar from './Searchbar.js'
 import MatchesTable from './MatchesTable.js'
 import ErrorMessage from './ErrorMessage.js'
+import Loading from './Loading.js'
 import apexImage from '../../images/apexImage.jpg'
 import axios from 'axios';
 
@@ -18,6 +19,7 @@ const Homepage = () => {
   const [displayErrorMessage, setErrorMessage] = React.useState(false)
   const [matches, setMatches] = React.useState([])
   const [validInput, setValidInput] = React.useState(true);
+  const [loading, setLoading] = React.useState(false)
 
 //Handling functions
 
@@ -62,6 +64,7 @@ const Homepage = () => {
   const getData = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
+      setLoading(true);
       fetch(`https://gaming-project.herokuapp.com/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
           return res.json()
@@ -80,10 +83,12 @@ function finishAllOperations(json) {
     console.log(`Request failed with a status code ${json.status}`);
     setErrorMessage(true);
     setDisplayTable(false);
+    setLoading(false);
   } else {
     setMatches(json);
     setErrorMessage(false);
     setDisplayTable(true)
+    setLoading(false);
   }
 }
 
@@ -125,6 +130,7 @@ const displayMatchRows = matches.map((match,index) => {
           searchData = {searchData}
           getData = {getData}
         />
+        {loading && <Loading />}
         {!validInput && <p>Please select a platform and ensure your username is entered correctly.</p>}
         {displayErrorMessage && <ErrorMessage />}
         {displayTable && <MatchesTable rowData={displayMatchRows} handleCloseClick={handleCloseClick}/>}
