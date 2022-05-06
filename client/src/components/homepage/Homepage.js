@@ -57,6 +57,8 @@ const Homepage = () => {
     }
   }
 */
+
+//
   const getData = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
@@ -93,9 +95,9 @@ const parseDate = (dateString) => {
 const displayMatchRows = matches.map((match,index) => {
 
   //dummy data to populate if reward is available
-  function checkRewardAvailability(match){
+  function checkRewardAvailability(matchData){
 
-    if (match.stats.kills.value <= .5) {
+    if (matchData.stats.kills.value >= 5) {
       return true
     } else {
       return false
@@ -108,7 +110,7 @@ const displayMatchRows = matches.map((match,index) => {
       <td>{parseDate(match.metadata.endDate.value)}</td>
       <td>{match.stats.kills.value}</td>
       <td>{match.stats.rankScore.value}</td>
-      <td>{checkRewardAvailability()?<button className="reward-button">Claim Reward</button>:""}</td>
+      <td>{checkRewardAvailability(match)?<button className="reward-button">Claim Reward</button>:""}</td>
     </tr>
   )
 })
