@@ -46,35 +46,54 @@ const Homepage = () => {
     })
   }
 
-  const parseDate = (dateString) => {
-    const dateArr = dateString.slice(0,10).split("-")
-    return `${dateArr[1].slice(1)}/${dateArr[2].slice(1)}/${dateArr[0].slice(-2)}`
-  }
-
+/*
   const getData = async () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
       const response = await fetch(`http://localhost:8080/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`);
-      const json = await response.json()
-      if(json.code === "ERR_BAD_REQUEST"){
-        await console.log(`Request failed with a status code ${json.status}`);
-        await setErrorMessage(true)
-        await setDisplayTable(false)
-      } else {
-        await console.log("Request successful");
-        await setMatches(json);
-        await setErrorMessage(false)
-        await setDisplayTable(true)
-      }
+      const json = await response.json();
+      await finishAllOperations(json)
+    } else {
+      setValidInput(false);
+    }
+  }
+*/
+  const getData = () => {
+    if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
+      setValidInput(true);
+      fetch(`http://localhost:8080/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          finishAllOperations(data);
+        })
     } else {
       setValidInput(false);
     }
   }
 
-//each match will be a row appended to a table
+
+function finishAllOperations(json) {
+  if(json.code === "ERR_BAD_REQUEST"){
+    console.log(`Request failed with a status code ${json.status}`);
+    setErrorMessage(true);
+    setDisplayTable(false);
+  } else {
+    setMatches(json);
+    setErrorMessage(false);
+    setDisplayTable(true)
+  }
+}
+
+const parseDate = (dateString) => {
+  const dateArr = dateString.slice(0,10).split("-")
+  return `${dateArr[1].slice(1)}/${dateArr[2].slice(1)}/${dateArr[0].slice(-2)}`
+}
+
 const displayMatchRows = matches.map((match,index) => {
 
-  //dummy data
+  //dummy data to populate if reward is available
   function checkRewardAvailability(match){
     const value = Math.random()
     if (value <= .5) {
