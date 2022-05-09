@@ -6,9 +6,8 @@ import psn from '../../images/ps4.svg';
 import xbl from '../../images/xbox.svg';
 
 const Searchbar = (props) => {
-  
+
   return (
-    //This should post that data to the server to be used to search for the player
     <form className="userInputForm">
       <div className="platformIconButtons">
         <button onClick={props.handleChangeImg} className={props.searchData.platform==="psn"?"platform-icon-btn-dark" : "platform-icon-btn"} id="psn" value="psn" type="button" name="PlayStation Network">
@@ -21,12 +20,8 @@ const Searchbar = (props) => {
           <img src={origin} value="origin" alt="ORIGIN"></img>
         </button>
       </div>
-      <div className="platformID">
-        <input onChange={props.handleChangeText} id="gamerTag" className="input" type="text" name="platformUserIdentifier" placeholder="Enter PlayStation Network ID"></input>
-      </div>
-      <div className="submit-btn">
-        <button onClick={props.getData} id="submit-search" type="button" name="button">Submit</button>
-      </div>
+      <input onChange={props.handleChangeText} id="gamerTag" className="input" type="text" name="platformUserIdentifier" placeholder="Enter PlayStation Network ID"></input>
+      <button onClick={props.getData} id="submit-search" type="button" name="button">Submit</button>
     </form>
   )
 }
