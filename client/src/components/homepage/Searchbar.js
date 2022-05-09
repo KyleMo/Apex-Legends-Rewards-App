@@ -8,6 +8,7 @@ import xbl from '../../images/xbox.svg';
 const Searchbar = (props) => {
 
   return (
+    //This should post that data to the server to be used to search for the player
     <form className="userInputForm">
       <div className="platformIconButtons">
         <button onClick={props.handleChangeImg} className={props.searchData.platform==="psn"?"platform-icon-btn-dark" : "platform-icon-btn"} id="psn" value="psn" type="button" name="PlayStation Network">

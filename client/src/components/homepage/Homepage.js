@@ -7,6 +7,8 @@ import Loading from './Loading.js'
 import apexImage from '../../images/apexImage.jpg'
 import axios from 'axios';
 
+
+
 const Homepage = () => {
 
   const [searchData, setSearchData] = React.useState({
@@ -98,8 +100,6 @@ const parseDate = (dateString) => {
 const displayMatchRows = matches.map((match,index) => {
 
   //dummy data to populate if reward is available
-  //This needs to be done on the backend so people
-  //can't manipulate data
   function checkRewardAvailability(matchData){
 
     if (matchData.stats.kills.value >= 5) {
