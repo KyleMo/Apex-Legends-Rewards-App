@@ -34,7 +34,12 @@ app.get('/data',(req,res) => {
     .catch(error => {
       res.json(error)
     });
+})
 
+//(path.join(__dirname, 'path/to/your/index.html')
+app.get('/*', function(req, res) {
+  //path.join(__dirname, "..", "build", "index.html")
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
 
 
