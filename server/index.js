@@ -29,6 +29,7 @@ app.get('/data',(req,res) => {
             matches.push(sessions[i].matches[j]);
         }
       }
+      console.log(matches)
       res.json(matches);
 
     })

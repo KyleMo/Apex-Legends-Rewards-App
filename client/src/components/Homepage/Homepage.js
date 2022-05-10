@@ -50,15 +50,16 @@ const Homepage = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
       setLoading(true);
-      console.log(searchData.platform + " " + searchData.platformUserIdentifier)
       fetch(`https://gaming-project.herokuapp.com/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
+          console.log(res.json())
           return res.json()
         })
         .then(data => {
           finishAllOperations(data);
         })
     } else {
+      console.log("Made it into the errors")
       setValidInput(false);
     }
   }
