@@ -1,0 +1,14 @@
+.profile {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.profile-page-disclaimer {
+  margin: 10% 15%;
+}

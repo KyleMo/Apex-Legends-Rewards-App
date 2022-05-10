@@ -1,0 +1,14 @@
+.how-it-works {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.how-steps {
+  width: 100%;
+  padding-left: 20%;
+}

@@ -121,7 +121,7 @@ const displayMatchRows = matches.map((match,index) => {
 })
 
   return (
-    <section className="main-content-1">
+    <main className="main-content-1">
         <h1 className="hero">Play Apex Legends and get rewarded!</h1>
         <p className="instructions">Select your platform (ex: Origin) then type in your username (ex: chaoticbutpc).</p>
         <Searchbar
@@ -134,8 +134,7 @@ const displayMatchRows = matches.map((match,index) => {
         {!validInput && <p>Please select a platform and ensure your username is entered correctly.</p>}
         {displayErrorMessage && <ErrorMessage />}
         {displayTable && <MatchesTable rowData={displayMatchRows} handleCloseClick={handleCloseClick}/>}
-    </section>
-
+    </main>
   )
 }
 
