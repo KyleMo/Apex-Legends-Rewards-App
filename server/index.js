@@ -12,8 +12,11 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
 app.get('/data',(req,res) => {
-  const passedPlatform = req.query.platform;
-  const passedUsername = req.query.username;
+  const passedPlatform = "origin"//req.query.platform;
+  const passedUsername = "chaoticbutpc"//req.query.username;
+
+  console.log(passedPlatform)
+  console.log(passedUsername)
 
   axios.get(`https://public-api.tracker.gg/v2/apex/standard/profile/${passedPlatform}/${passedUsername}/sessions`,{
     headers: {"TRN-Api-Key": process.env.REACT_APP_RAPID_API_KEY,
