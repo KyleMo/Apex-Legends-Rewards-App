@@ -52,7 +52,6 @@ const Homepage = () => {
       setLoading(true);
       fetch(`https://gaming-project.herokuapp.com/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
-          console.log(res.json())
           return res.json()
         })
         .then(data => {
