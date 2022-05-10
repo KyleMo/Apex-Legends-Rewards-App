@@ -78,10 +78,24 @@ function finishAllOperations(json) {
   }
 }
 
+
+
 const parseDate = (dateString) => {
   const dateArr = dateString.slice(0,10).split("-")
-  return `${dateArr[1].slice(1)}/${dateArr[2].slice(1)}/${dateArr[0].slice(-2)}`
+  let day, month;
+  if(dateArr[0] >= 10){
+    day = dateArr[2]
+  } else {
+    day = dateArr[2].slice(1)
+  }
+  if(dateArr[1] >= 10){
+    month = dateArr[1];
+  } else {
+    month = dateArr[1].slice(1);
+  }
+  return `${month}/${day}/${dateArr[0].slice(-2)}`
 }
+
 
 const displayMatchRows = matches.map((match,index) => {
 

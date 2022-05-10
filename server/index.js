@@ -30,7 +30,6 @@ app.get('/data',(req,res) => {
         }
       }
       res.json(matches);
-
     })
     .catch(error => {
       res.json(error)
