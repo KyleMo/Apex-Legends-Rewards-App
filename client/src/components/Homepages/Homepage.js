@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styles from './homepage.css'
 import Searchbar from './Searchbar.js'
 import MatchesTable from './MatchesTable.js'
@@ -6,8 +6,6 @@ import ErrorMessage from './ErrorMessage.js'
 import Loading from './Loading.js'
 import apexImage from '../../images/apexImage.jpg'
 import axios from 'axios';
-
-
 
 const Homepage = () => {
 
@@ -47,20 +45,7 @@ const Homepage = () => {
     })
   }
 
-/*
-  const getData = async () => {
-    if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
-      setValidInput(true);
-      const response = await fetch(`http://localhost:8080/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`);
-      const json = await response.json();
-      await finishAllOperations(json)
-    } else {
-      setValidInput(false);
-    }
-  }
-*/
 
-//
   const getData = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);

@@ -1,11 +1,9 @@
-import Homepage from './components/Homepage/Homepage.js'
+import Homepage from './components/Homepages/Homepage.js'
 import Navbar from './components/Navbar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 import Profile from './components/Profile/Profile.js'
 import HowItWorks from './components/HowItWorks/HowItWorks.js'
-
 import { Routes, Route } from "react-router-dom"
-
 import './app.css'
 
 
