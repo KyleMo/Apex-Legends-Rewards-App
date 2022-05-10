@@ -10,7 +10,7 @@ require('dotenv').config();
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-console.log(process.env.REACT_APP_RAPID_API_KEY);
+
 app.get('/data',(req,res) => {
   const passedPlatform = req.query.platform;
   const passedUsername = req.query.username;
