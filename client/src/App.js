@@ -1,4 +1,4 @@
-import Homepage from './components/Homepages/Homepage.js'
+import Homepage from './components/Homepage/Homepage.js'
 import Navbar from './components/Navbar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 import Profile from './components/Profile/Profile.js'
