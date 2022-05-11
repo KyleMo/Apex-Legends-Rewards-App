@@ -2,7 +2,7 @@ import express from 'express'
 import axios from 'axios'
 const router = express.Router();
 
-router.get('/data',(req,res) => {
+router.get('/',(req,res) => {
 
   const passedPlatform = req.query.platform;
   const passedUsername = req.query.username;
