@@ -21,7 +21,7 @@
   
   *Steps required to install project and how to get the development environment running:*
   
-  To run this application, ```git clone``` the repository. Move in the project's directory and enter ```npm install``` to install all dependencies as specified in the ```package.json```. Run the application from the route folder by running ```npm run build```. Once complete enter ```npm start``` which will trigger the ```index.js``` file in the server to run.
+  To run this application, ```git clone``` the repository. Ensure you're in the project directory and enter ```npm install``` to install all dependencies as specified in the ```package.json```. Run the application from the route folder by running ```npm run build```. Once complete enter ```npm start``` which will trigger the ```index.js``` file in the server to run.
   
   ## Usage 
   
