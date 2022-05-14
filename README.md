@@ -1,4 +1,4 @@
-# Rewardpex
+# Rewardpex [Live app here](https://gaming-project.herokuapp.com/)
 
   ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/KyleMo/Apex-Legends-Rewards-App?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/KyleMo/Apex-Legends-Rewards-App?style=flat&logo=appveyor)
   
@@ -6,7 +6,7 @@
   
   ## Description 
   
-  Rewardpex is a web based application that can be used to earn rewards for performing well at Apex Legends.
+  Rewardpex is a web based application that can be used to earn rewards for performing well at Apex Legends. This application is very much in early days. The next upcoming feature is account creation!
 
   ## Table of Contents
   * [Installation](#installation)
