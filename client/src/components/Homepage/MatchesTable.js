@@ -1,8 +1,9 @@
 import React from 'react';
 import './matchestable.css'
 
+//if they click on reward and aren't signed in, then show them
+// the login box or register box
 const MatchesTable = (props) => {
-
 
   return (
     <div className="table-container">

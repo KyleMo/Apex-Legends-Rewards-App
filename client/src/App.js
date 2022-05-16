@@ -3,6 +3,8 @@ import Navbar from './components/Navbar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 import Profile from './components/Profile/Profile.js'
 import HowItWorks from './components/HowItWorks/HowItWorks.js'
+import LogInPage from './components/LogInPage/LogInPage.js'
+import Register from './components/RegisterPage/RegisterPage.js'
 import { Routes, Route } from "react-router-dom"
 import './app.css'
 
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

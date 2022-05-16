@@ -9,6 +9,10 @@ import axios from 'axios';
 
 const Homepage = () => {
 
+
+  const [userData,setUserData] = React.useState(localStorage.getItem('userLogin'))
+
+
   const [searchData, setSearchData] = React.useState({
     platform: "",
     platformUserIdentifier: ""
@@ -45,12 +49,11 @@ const Homepage = () => {
     })
   }
 
-
   const getData = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
       setLoading(true);
-      fetch(`https://gaming-project.herokuapp.com/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
+      fetch(`http://localhost:8080/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
           return res.json()
         })

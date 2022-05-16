@@ -1,24 +1,30 @@
 
-import express from 'express'
-import path from 'path'
-import dataRoute from './routes/gameData.js'
-import {} from 'dotenv/config'
-import {fileURLToPath} from 'url'
+import express from 'express';
+import path from 'path';
+import dataRoutes from './routes/gameData.js';
+import userRoutes from './routes/users.js'
+import {} from 'dotenv/config';
+import {fileURLToPath} from 'url';
+import connectDB from './config/db.js'
+import { notFound, errorHandler} from './middlewares/errorMiddleware.js'
 
-const app = express();
-app.use(express.json());
+
 const PORT = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-app.use('/data', dataRoute)
-app.use('/api/users', userRoutes);
+connectDB();
 
+const app = express();
+app.use(express.json())
+
+app.use('/data', dataRoutes);
+app.use('/api/users', userRoutes);
 app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(errorHandler)
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
-
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))

@@ -1,0 +1,57 @@
+.register-page {
+  /*min-height: 500px;*/
+  height: 100vh;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.register-form {
+  /*margin-top: 100px;*/
+  max-width: 1000px;
+  max-height: 300px;
+  width: 30vw;
+  border-radius: 10px;
+  height: 20vw;
+  background-color: #B93038;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 4.4564px rgba(0, 0, 0, 0.5);
+}
+
+.register-input {
+  border: none;
+  width: 80%;
+  margin: 10px 0;
+  padding: 5px;
+  box-shadow: 0px 2px 2.4564px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  outline: none;
+}
+
+.register-input-error {
+  border: none;
+  border-left: 6px solid red;
+  width: 80%;
+  margin: 10px 0;
+  padding: 5px;
+  box-shadow: 0px 2px 2.4564px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  outline: none;
+}
+
+.register-input[type="submit"] {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  width: 83%;
+}
+
+.register-input[type="submit"]:hover{
+  background-color: #e1dcd6;
+}
