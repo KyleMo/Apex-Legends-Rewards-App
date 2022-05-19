@@ -17,7 +17,8 @@ const registerUser = asyncHandler(async (req, res) => {
     username,
     email,
     password,
-    pic
+    pic,
+    linkedAccounts
   })
 
   if (user) {
@@ -26,7 +27,8 @@ const registerUser = asyncHandler(async (req, res) => {
       username: user.username,
       email: user.email,
       password: user.password,
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      linkedAccounts: user.linkedAccounts
     })
   } else {
     res.status(400)
@@ -46,7 +48,8 @@ const authUser = asyncHandler(async (req, res) => {
       username: user.username,
       email: user.email,
       pic: user.pic,
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      linkedAccounts: user.linkedAccounts
     })
   }
   else {
@@ -55,14 +58,48 @@ const authUser = asyncHandler(async (req, res) => {
   }
 })
 
-const registerGamingAccount = asyncHandler(async (req, res) => {
-  const {username, email, password, pic, gamingAccount } = req.body;
+const registerLinkedAccount = asyncHandler(async (req, res) => {
+  const {email, platformUserIdentifier, platform } = req.body;
 
-  //if gaming account already exists in database then send error, gaming account
-  // already taken
-  // will have to set up some kind of verification if users are actually the owner
-  // of that account
+  const user = await User.findOne({email});
 
-})
+  //This doesn't work and needs to be fixed
+  const profileExists = await User.findOne({linkedAccounts: {platformUserIdentifier: platformUserIdentifier, platform: platform}})
 
-export { registerUser, authUser };
+  if (user.linkedAccounts.length >= 3){
+    res.status(400);
+    throw new Error("Cannot link more than 3 accounts")
+  }
+
+  //This doesn't work and needs to be fixed
+  if (profileExists){
+    res.status(400);
+    throw new Error("This gaming profile has already been linked")
+  }
+
+  const options = {
+    new: true
+  }
+  const userToUpdate = await User.findOneAndUpdate(
+      {email},
+      {$push: {linkedAccounts: {platformUserIdentifier: platformUserIdentifier, platform: platform}}},
+      options
+    );
+
+  if (userToUpdate) {
+    res.status(201).json({
+      __id: user._id,
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      token: generateToken(user._id),
+      linkedAccounts: user.linkedAccounts
+    })
+  } else {
+    res.status(400)
+    throw new Error("Error occured. Link not success.")
+  }
+
+});
+
+export { registerUser, authUser, registerLinkedAccount };

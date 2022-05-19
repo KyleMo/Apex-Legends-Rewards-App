@@ -1,14 +1,66 @@
 .profile {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
   background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 25px;
 }
 
-.profile-page-disclaimer {
-  margin: 10% 15%;
+.profile-container {
+  max-width: 1200px;
+  min-height: 300px;
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+  background-color: red;
+}
+
+.profile-details {
+  background-color: white;
+  text-align: center;
+  width: 25%;
+  height: 100%;
+}
+
+.profile-pic {
+  margin: 10px;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+}
+
+.profile-username {
+  margin: 0;
+  font-size: 2vw;
+}
+
+.profile-linked-select {
+  outline: none;
+}
+
+.profile-linked-select {
+  width: 100%;
+}
+
+select {
+  outline: none;
+  color: white;
+  text-align: center;
+  padding: 2px;
+  font-size: 20px;
+  background-color: blue;
+  border: none;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+.profile a {
+  color: black;
+  text-decoration: none;
 }

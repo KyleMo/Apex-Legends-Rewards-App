@@ -30,7 +30,7 @@ const RegisterPage = () => {
           }
         }
         setLoading(true)
-        const { data } = await axios.post('/api/users', registerData, config)
+        const { data } = await axios.post('/api/users/register', registerData, config)
         localStorage.setItem('userLogin', JSON.stringify(data))
         setLoading(false)
         setAccountCreated(true)

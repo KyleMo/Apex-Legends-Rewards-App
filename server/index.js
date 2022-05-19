@@ -1,7 +1,7 @@
 
 import express from 'express';
 import path from 'path';
-import dataRoutes from './routes/gameData.js';
+import dataRoutes from './routes/data.js';
 import userRoutes from './routes/users.js'
 import {} from 'dotenv/config';
 import {fileURLToPath} from 'url';
@@ -18,7 +18,7 @@ connectDB();
 const app = express();
 app.use(express.json())
 
-app.use('/data', dataRoutes);
+app.use('/api/data', dataRoutes);
 app.use('/api/users', userRoutes);
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(errorHandler)

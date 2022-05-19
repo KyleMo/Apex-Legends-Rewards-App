@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
+
 const userSchema = mongoose.Schema(
   {
     username: {
@@ -22,14 +23,16 @@ const userSchema = mongoose.Schema(
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
-    gamingAccount: {
-      type: String,
-      required: false
-    }
+    linkedAccounts: [
+      {
+        platformUserIdentifier: String,
+        platform: String
+      }
+    ],
   },
-  {
-    timestamps: true,
-  }
+    {
+      timestamps: true,
+    }
 );
 
 userSchema.pre('save', async function (next){

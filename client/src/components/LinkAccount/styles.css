@@ -1,16 +1,17 @@
-.log-in-page {
-  min-height: 500px;
+.linkAccount {
+  margin: 0;
   height: 100vh;
-  display: flex;
-  flex-direction:column;
-  align-items: center;
   background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.load-div {
-  margin-top: 120px;
-  color: white;
-  border-radius: 10px;
+.linkAccount h1 {
+  text-align: center;
+  margin: 40px;
+  color: black;
 }

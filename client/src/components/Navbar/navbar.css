@@ -49,3 +49,7 @@
 a {
   text-decoration: none;
 }
+
+.log-out {
+  cursor: pointer;
+}
