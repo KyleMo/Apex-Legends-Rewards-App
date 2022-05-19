@@ -5,6 +5,7 @@ import Profile from './components/Profile/Profile.js'
 import HowItWorks from './components/HowItWorks/HowItWorks.js'
 import LogInPage from './components/LogInPage/LogInPage.js'
 import Register from './components/RegisterPage/RegisterPage.js'
+import LinkAccount from './components/LinkAccount/LinkAccount.js'
 import { Routes, Route } from "react-router-dom"
 import './app.css'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/link-account" element={<LinkAccount />} />
       </Routes>
       <Footer />
     </div>
