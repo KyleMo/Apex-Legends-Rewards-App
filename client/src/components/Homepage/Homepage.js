@@ -54,11 +54,12 @@ const Homepage = () => {
       setValidInput(true);
       setLoading(true);
            //https://gaming-project.herokuapp.com/
-      fetch(`https://gaming-project.herokuapp.com/data?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
+      fetch(`https://gaming-project.herokuapp.com/sessions?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
-          res.json()
+          return res.json()
         })
         .then(data => {
+          console.log(data)
           finishAllOperations(data);
         })
     } else {
