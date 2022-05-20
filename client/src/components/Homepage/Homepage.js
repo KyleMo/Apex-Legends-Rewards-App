@@ -12,7 +12,6 @@ const Homepage = () => {
 
   const [userData,setUserData] = React.useState(localStorage.getItem('userLogin'))
 
-
   const [searchData, setSearchData] = React.useState({
     platform: "",
     platformUserIdentifier: ""
@@ -54,7 +53,7 @@ const Homepage = () => {
       setValidInput(true);
       setLoading(true);
            //https://gaming-project.herokuapp.com/
-      fetch(`https://gaming-project.herokuapp.com/sessions?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
+      fetch(`https://gaming-project.herokuapp.com/api/data/sessions?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
           return res.json()
         })
