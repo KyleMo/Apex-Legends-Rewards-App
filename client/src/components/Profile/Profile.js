@@ -3,24 +3,24 @@ import { Link, useLocation } from 'react-router-dom'
 import './profile.css';
 
 const Profile = () => {
-  const [userData, setUserData] = React.useState({
+  /*const [userData, setUserData] = React.useState({
     username: "kylemo",
     pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     linkedAccounts: [{
       platformUserIdentifier: "jogn",
       platform: "xbl"
     }]
-  });
-  //const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
-  const [playerData, setPlayerData] = React.useState({level: "1,200", kills: "34,000"})
-  //const [playerData, setPlayerData] = React.useState(null);
+  });*/
+  const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
+  //const [playerData, setPlayerData] = React.useState({level: "1,200", kills: "34,000"})
+  const [playerData, setPlayerData] = React.useState(null);
   const [selectState, setSelectState] = React.useState("");
   const location = useLocation();
-/*
+
   React.useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem('userLogin')))
   },[location])
-*/
+
   const handleChange = (e) => {
     if(e.target.value){
 
