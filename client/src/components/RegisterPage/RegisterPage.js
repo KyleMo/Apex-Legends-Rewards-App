@@ -36,6 +36,7 @@ const RegisterPage = () => {
         setAccountCreated(true)
         navigate('/profile');
       } catch (e) {
+        setLoading(false)
         setError(e.response.data.message)
       }
     } else {

@@ -2,7 +2,7 @@ import './styles.css';
 import React from 'react';
 import Searchbar from '../Homepage/Searchbar.js'
 import Loading from '../Homepage/Loading.js'
-import ErrorMessage from '../Homepage/ErrorMessage.js'
+import Error from '../Error/Error.js'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -18,7 +18,6 @@ const LinkAccount = () => {
   })
   const [validInput, setValidInput] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
-  const [displayErrorMessage, setErrorMessage] = React.useState(false);
   const [error, setError] = React.useState(false)
 
   const handleChangeText = (e) => {
@@ -72,10 +71,12 @@ const LinkAccount = () => {
 
           } else {
             setLoading(false)
-            console.log("No gamertag returned");
-            setError("Please select the correct platform and enter a valid username")
+            setError("No gamertag returned")
           }
 
+        })
+        .catch(e => {
+          setError("Unable to verify existence of gaming account")
         })
     } else {
       setValidInput(false);
@@ -90,7 +91,7 @@ const LinkAccount = () => {
       <Searchbar handleChangeText={handleChangeText} handleChangeImg={handleChangeImg} searchData={linkedData} getData={handleSubmit}/>
       {loading && <Loading />}
       {!validInput && <p>Please select a platform and ensure your username is entered correctly.</p>}
-      {displayErrorMessage && <ErrorMessage />}
+      {error && <div className="login-error"><Error message={error}/></div>}
     </main>
   )
 }

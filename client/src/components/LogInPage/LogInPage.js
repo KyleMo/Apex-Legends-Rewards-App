@@ -37,7 +37,6 @@ const LogInPage = () => {
     }
   }
 
-
   const handleChange = (e) => {
     setLogInDetails(prev => {
       return {
@@ -46,7 +45,6 @@ const LogInPage = () => {
       }
     })
   }
-
 
   return(
     <div className="log-in-page">

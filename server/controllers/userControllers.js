@@ -10,7 +10,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error("User already exists")
+    throw new Error("User already exists.")
   }
 
   const user = await User.create({
@@ -18,7 +18,6 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password,
     pic,
-    linkedAccounts
   })
 
   if (user) {
@@ -30,6 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
       linkedAccounts: user.linkedAccounts
     })
+
   } else {
     res.status(400)
     throw new Error("Error occured")
@@ -61,20 +61,20 @@ const authUser = asyncHandler(async (req, res) => {
 const registerLinkedAccount = asyncHandler(async (req, res) => {
   const {email, platformUserIdentifier, platform } = req.body;
 
-  const user = await User.findOne({email});
+  const user = await User.findOne({email}); //to check length of added accounts
+  const profileExists = await User.findOne({
+      linkedAccounts: {$elemMatch: {platformUserIdentifier: platformUserIdentifier, platform: platform}}
+  })
 
-  //This doesn't work and needs to be fixed
-  const profileExists = await User.findOne({linkedAccounts: {platformUserIdentifier: platformUserIdentifier, platform: platform}})
+  if (profileExists){
+
+    res.status(400);
+    throw new Error("This gaming profile has already been linked")
+  }
 
   if (user.linkedAccounts.length >= 3){
     res.status(400);
     throw new Error("Cannot link more than 3 accounts")
-  }
-
-  //This doesn't work and needs to be fixed
-  if (profileExists){
-    res.status(400);
-    throw new Error("This gaming profile has already been linked")
   }
 
   const options = {
@@ -97,7 +97,7 @@ const registerLinkedAccount = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(400)
-    throw new Error("Error occured. Link not success.")
+    throw new Error("Error occured. Link not successful.")
   }
 
 });
