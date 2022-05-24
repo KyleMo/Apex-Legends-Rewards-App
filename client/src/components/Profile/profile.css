@@ -10,26 +10,24 @@
 .profile-container {
   max-width: 1200px;
   min-height: 600px;
-  max-height: 800px;
   width: 80%;
-  height: 80vh;
   margin: auto;
   background-color: #B93038;
   border-radius: 10px;
+  display: flex;
 }
 
 .profile-details {
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background: rgba(0,0,0,.5);
   text-align: center;
-  width: 25%;
-  height: 100%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  box-shadow: 2px 0px 3px  rgba(0, 0, 0, 0.2);
+  width: 30%;
+  height: 80%;
+  border-radius: 10px;
 }
 
 .profile-pic {
@@ -50,15 +48,15 @@
 
 .profile-info-container{
   margin: 0 0 20px 0;
-
+  border-top-right-radius: 10px;
 }
 
 .profile-data-container {
-  max-height: 300px;
-  height: 100%;
   width: 100%;
-  bottom: 0;
-  background-color: red;
+  height: 100%;
+  background-color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px
 }
 
 .profile select {
@@ -87,13 +85,192 @@
   cursor: pointer;
 }
 
+.profile-table-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+
 @media (max-width: 800px){
   .profile-username {
     font-size: 24px;
   }
 
   .profile select {
-    font-size: 2vw;
+    font-size: 18px;
+  }
+
+}
+
+.reward-button {
+  width: 60%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.profile-matches-table {
+  margin: 0;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+td, th {
+  padding: 12px 15px;
+}
+
+th {
+  background-color: #B93038;
+  color: white;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.profile-matches-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.profile-matches-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+@media screen and (max-width: 650px) {
+
+
+    .reward-button {
+      width: 70%;
+      font-size: 2vw;
+      font-weight: bold;
+      padding: 2px;
+    }
+
+    .profile-matches-table {
+      font-size: 11px;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      color: black;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .profile td, th {
+      padding: 2vw .5vw;
+    }
+
+
+}
+
+@media screen and (max-width: 1200px){
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-details {
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0,0,0,.5);
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .profile-info-container {
+    padding: 5px 0;
+    margin: 0;
+    max-width: none;
+    min-width: none;
+    width: 100%;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-data-container {
+    max-width: none;
+    min-width: none;
+    display: flex;
+    width: 100%;
+    background-color: black;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .profile-data-container h3 {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .profile-pic {
+    border-radius: 50%;
+    margin: 0 10px;
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .profile-username {
+    margin: 0 10px;
+    font-size: 3vw;
+  }
+
+  .profile select {
+    text-align: left;
+    margin: 0 5px;
+    padding: 0;
+
+  }
+
+  .profile-match-table {
+    padding: 20px 0;
+  }
+
+  .profile-table-container{
+    padding: 25px 0;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+
+
+  .profile-pic {
+    visibility:  hidden;
+    position: absolute;
+  }
+
+  .profile-username {
+    font-size: 18px;
+  }
+
+  .profile select {
+    font-size: 15px;
+  }
+  .profile a {
+    font-size: 9px;
   }
 
 }

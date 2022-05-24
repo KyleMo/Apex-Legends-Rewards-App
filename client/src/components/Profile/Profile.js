@@ -1,20 +1,16 @@
+//`https://gaming-project.herokuapp.com/api/data/player?platform=${platform}&username=${username}`
+
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './profile.css';
 
 const Profile = () => {
-  /*const [userData, setUserData] = React.useState({
-    username: "kylemo",
-    pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
-    linkedAccounts: [{
-      platformUserIdentifier: "jogn",
-      platform: "xbl"
-    }]
-  });*/
+
+
   const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
-  //const [playerData, setPlayerData] = React.useState({level: "1,200", kills: "34,000"})
   const [playerData, setPlayerData] = React.useState(null);
   const [selectState, setSelectState] = React.useState("");
+  const [matches, setMatches] = React.useState([])
   const location = useLocation();
 
   React.useEffect(() => {
@@ -28,7 +24,7 @@ const Profile = () => {
 
       const username = e.target.value.replace(/\s+/g,'').split("|")[0];
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
-
+      setLoading(true)
       fetch(`https://gaming-project.herokuapp.com/api/data/player?platform=${platform}&username=${username}`)
         .then(res => {
           return res.json()
@@ -36,11 +32,52 @@ const Profile = () => {
         .then(data => {
           setPlayerData(data)
         })
+
+      fetch(`https://gaming-project.herokuapp.com/api/data/sessions?platform=${platform}&username=${username}`)
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          setMatches(data)
+        })
     } else {
       setPlayerData(null)
     }
   }
 
+  const parseDate = (dateString) => {
+    const dateArr = dateString.slice(0,10).split("-")
+    let day, month;
+    if(dateArr[0] >= 10){
+      day = dateArr[2]
+    } else {
+      day = dateArr[2].slice(1)
+    }
+    if(dateArr[1] >= 10){
+      month = dateArr[1];
+    } else {
+      month = dateArr[1].slice(1);
+    }
+    return `${month}/${day}/${dateArr[0].slice(-2)}`
+  }
+
+  const displayRow = matches.map((match, index) => {
+    function checkRewardAvailability(match){
+      return match.stats.kills.value >= 5 ? true : false
+    }
+
+    return (
+      <tr key={match.id}>
+        <td>{index+1}</td>
+        <td>{parseDate(match.metadata.endDate.value)}</td>
+        <td>{match.stats.kills.value}</td>
+        <td>{match.stats.rankScore.value}</td>
+        <td>{checkRewardAvailability(match)?<button className="reward-button">Claim Reward</button>:""}</td>
+      </tr>
+    )
+  })
+
+//Custom drop down selection
   const Dropdown = (props) => {
     const linkedAccounts = userData.linkedAccounts.map((account,index) => {
       return (
@@ -52,7 +89,7 @@ const Profile = () => {
     return (
       <form className="profile-linked-select" >
         <select onChange={handleChange} value={selectState} name='linkedAccount' id="linked">
-          <option value={""}>Select your account</option>
+          {selectState === "" && <option value={""}>Select your account</option>}
           {linkedAccounts}
         </select>
       </form>
@@ -64,21 +101,32 @@ const Profile = () => {
       <div className="profile-container">
         <aside className="profile-details">
           <div className="profile-info-container">
-          {userData && <img className="profile-pic" src={userData.pic}></img>}
-          {userData && <h1 className="profile-username">{userData.username}</h1>}
-          {(userData && userData.linkedAccounts.length != 0) && <Dropdown linkedAccounts={userData.linkedAccounts}/>}
-          {(userData && userData.linkedAccounts.length >=1) ? <Link to='/link-account'>Link another account</Link> : <Link to='/link-account'>Link a gaming account</Link>}
+            {userData && <img className="profile-pic" src={userData.pic}></img>}
+            {userData && <h1 className="profile-username">{userData.username}</h1>}
+            {(userData && userData.linkedAccounts.length != 0) && <Dropdown linkedAccounts={userData.linkedAccounts}/>}
+            {(userData && userData.linkedAccounts.length >=1) ? <Link to='/link-account'>Link another account</Link> : <Link to='/link-account'>Link a gaming account</Link>}
           </div>
           <div className="profile-data-container">
             {playerData && <h3>{`Level: ${playerData.level}`}</h3>}
             {playerData && <h3>{`Kills: ${playerData.kills}`}</h3>}
+            {playerData && <h3>{`Rank Score: ${playerData.rankScore}`}</h3>}
           </div>
         </aside>
-        <table>
-
-        </table>
+        <div className="profile-table-container">
+          <table className="profile-matches-table">
+              <thead>
+                <tr>
+                  <th>Match</th>
+                  <th>Match Date</th>
+                  <th>Kills</th>
+                  <th>Rank Score</th>
+                  <th>Reward</th>
+                </tr>
+              </thead>
+            <tbody>{displayRow}</tbody>
+          </table>
+        </div>
       </div>
-
     </main>
   )
 }

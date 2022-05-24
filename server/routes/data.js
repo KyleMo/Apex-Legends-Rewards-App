@@ -37,6 +37,7 @@ router.get('/player',(req, res) => {
   const passedPlatform = req.query.platform;
   const passedUsername = req.query.username;
 
+
   axios.get(`https://public-api.tracker.gg/v2/apex/standard/profile/${passedPlatform}/${passedUsername}`,{
     headers: {"TRN-Api-Key": process.env.REACT_APP_RAPID_API_KEY,
               "Accept": "application/json",

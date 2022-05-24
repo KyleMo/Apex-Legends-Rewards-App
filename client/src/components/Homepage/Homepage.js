@@ -6,10 +6,12 @@ import ErrorMessage from './ErrorMessage.js'
 import Loading from './Loading.js'
 import apexImage from '../../images/apexImage.jpg'
 import axios from 'axios';
+import Confetti from 'react-confetti'
+import { useNavigate } from 'react-router-dom' 
 
 const Homepage = () => {
 
-
+  const [confetti, setConfetti] = React.useState(false)
   const [userData,setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')))
 
   const [searchData, setSearchData] = React.useState({
@@ -57,11 +59,9 @@ const Homepage = () => {
           return res.json()
         })
         .then(data => {
-          console.log(data)
           finishAllOperations(data);
         })
     } else {
-      console.log("Made it into the errors")
       setValidInput(false);
     }
   }
@@ -112,19 +112,32 @@ const displayMatchRows = matches.map((match,index) => {
     }
   }
 
+const handleRewardClick = () => {
+  if (!userData) {
+    navigate('/login')
+  }
+  else {
+    //getReward()
+    console.log("Reward!")
+    setConfetti(true)
+  }
+}
+
+
   return (
     <tr key={match.id}>
       <td>{index+1}</td>
       <td>{parseDate(match.metadata.endDate.value)}</td>
       <td>{match.stats.kills.value}</td>
       <td>{match.stats.rankScore.value}</td>
-      <td>{checkRewardAvailability(match)?<button className="reward-button">Claim Reward</button>:""}</td>
+      <td>{checkRewardAvailability(match)?<button onClick={handleRewardClick} className="reward-button">Claim Reward</button>:""}</td>
     </tr>
   )
 })
 
   return (
     <main className="main-content-1">
+        {confetti && <Confetti width={window.innerWidth} height={window.innerHeight} tweenDuration={2000}/>}
         <h1 className="hero">Play Apex Legends and get rewarded!</h1>
         <p className="instructions">Select your platform (ex: Origin) then type in your username (ex: chaoticbutpc).</p>
         <Searchbar

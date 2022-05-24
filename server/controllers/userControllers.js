@@ -67,7 +67,6 @@ const registerLinkedAccount = asyncHandler(async (req, res) => {
   })
 
   if (profileExists){
-
     res.status(400);
     throw new Error("This gaming profile has already been linked")
   }
