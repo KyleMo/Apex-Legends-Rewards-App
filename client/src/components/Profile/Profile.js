@@ -1,4 +1,3 @@
-//`https://gaming-project.herokuapp.com/api/data/player?platform=${platform}&username=${username}`
 
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -24,7 +23,7 @@ const Profile = () => {
 
       const username = e.target.value.replace(/\s+/g,'').split("|")[0];
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
-      setLoading(true)
+
       fetch(`https://gaming-project.herokuapp.com/api/data/player?platform=${platform}&username=${username}`)
         .then(res => {
           return res.json()

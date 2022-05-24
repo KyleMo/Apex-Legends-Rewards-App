@@ -7,13 +7,12 @@ import Loading from './Loading.js'
 import apexImage from '../../images/apexImage.jpg'
 import axios from 'axios';
 import Confetti from 'react-confetti'
-import { useNavigate } from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom'
 
 const Homepage = () => {
 
   const [confetti, setConfetti] = React.useState(false)
   const [userData,setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')))
-
   const [searchData, setSearchData] = React.useState({
     platform: "",
     platformUserIdentifier: ""
@@ -23,6 +22,7 @@ const Homepage = () => {
   const [matches, setMatches] = React.useState([])
   const [validInput, setValidInput] = React.useState(true);
   const [loading, setLoading] = React.useState(false)
+  const navigate = useNavigate();
 
 //Handling functions
 
@@ -118,8 +118,10 @@ const handleRewardClick = () => {
   }
   else {
     //getReward()
-    console.log("Reward!")
     setConfetti(true)
+    setTimeout(() => {
+      setConfetti(false)
+    },5000)
   }
 }
 
