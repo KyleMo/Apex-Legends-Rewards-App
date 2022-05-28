@@ -99,19 +99,6 @@ const parseDate = (dateString) => {
   return `${month}/${day}/${dateArr[0].slice(-2)}`
 }
 
-
-const displayMatchRows = matches.map((match,index) => {
-
-  //dummy data to populate if reward is available
-  function checkRewardAvailability(matchData){
-
-    if (matchData.stats.kills.value >= 5) {
-      return true
-    } else {
-      return false
-    }
-  }
-
 const handleRewardClick = () => {
   if (!userData) {
     navigate('/login')
@@ -125,6 +112,17 @@ const handleRewardClick = () => {
   }
 }
 
+const displayMatchRows = matches.map((match,index) => {
+
+  //dummy data to populate if reward is available
+  function checkRewardAvailability(matchData){
+
+    if (matchData.stats.kills.value >= 5) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <tr key={match.id}>
