@@ -256,6 +256,18 @@ th:last-child {
 
 @media screen and (max-width: 550px){
 
+  .profile {
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .profile-container {
+    margin: 0;
+    width: 95%;
+  }
 
   .profile-pic {
     visibility:  hidden;
@@ -266,9 +278,14 @@ th:last-child {
     font-size: 18px;
   }
 
+  .profile-data-container{
+    font-size: 12px;
+  }
+
   .profile select {
     font-size: 15px;
   }
+
   .profile a {
     font-size: 9px;
   }

@@ -3,7 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction:column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
   background-size: cover;
@@ -11,9 +11,11 @@
 }
 
 .register-form {
-  /*margin-top: 100px;*/
+  margin-top: 100px;
   max-width: 1000px;
   max-height: 300px;
+  min-width: 250px;
+  min-height: 250px;
   width: 30vw;
   border-radius: 10px;
   height: 20vw;
