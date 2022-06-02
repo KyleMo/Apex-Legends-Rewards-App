@@ -25,7 +25,7 @@ const Profile = () => {
       const username = e.target.value.replace(/\s+/g,'').split("|")[0];
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
 
-      fetch(`https://rewardpex.herokuapp.com/api/data/player?platform=${platform}&username=${username}`)
+      fetch(`/api/data/player?platform=${platform}&username=${username}`)
         .then(res => {
           return res.json()
         })
@@ -33,7 +33,7 @@ const Profile = () => {
           setPlayerData(data)
         })
 
-      fetch(`https://rewardpex.herokuapp.com/api/data/sessions?platform=${platform}&username=${username}`)
+      fetch(`/api/data/sessions?platform=${platform}&username=${username}`)
         .then(res => {
           return res.json()
         })

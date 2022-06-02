@@ -54,7 +54,7 @@ const Homepage = () => {
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
       setLoading(true);
-      fetch(`https://rewardpex.herokuapp.com/api/data/sessions?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
+      fetch(`/api/data/sessions?platform=${searchData.platform}&username=${searchData.platformUserIdentifier}`)
         .then(res => {
           return res.json()
         })
