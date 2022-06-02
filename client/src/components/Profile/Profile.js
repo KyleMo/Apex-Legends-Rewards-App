@@ -6,33 +6,17 @@ import './profile.css';
 const Profile = () => {
 
 
-  //const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
-  const [userData, setUserData] = React.useState({
-    username: "kylemo",
-    email: "monstadkyle@gmail.com",
-    pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
-    linkedAccounts: [{
-      platformUserIdentifier: "tarikish",
-      platform: "xbl"
-    },{
-      platformUserIdentifier: "chaoticbutpc",
-      platform: "origin"
-    }]
-  })
-  const [playerData, setPlayerData] = React.useState({
-      kills: 2000,
-      level: 1200
-    });
-
+  const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
+  const [playerData, setPlayerData] = React.useState(null);
   const [selectState, setSelectState] = React.useState("");
   const [matches, setMatches] = React.useState([])
   const location = useLocation();
 
-/*
+
   React.useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem('userLogin')))
   },[location])
-*/
+
   const handleChange = (e) => {
     if(e.target.value){
 
