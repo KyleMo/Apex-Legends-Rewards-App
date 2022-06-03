@@ -18,6 +18,10 @@ const Navbar = () => {
   const handleLogout = () => {
     setUserData(null)
     localStorage.removeItem('userLogin')
+    // if location == homepage then window location resfrsh
+    if (location.pathname == "/"){
+      window.location.reload(false)
+    }
     navigate("/")
   }
 
