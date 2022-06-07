@@ -6,7 +6,7 @@
   
   ## Description 
   
-  Rewardpex [(Live app here)](https://gaming-project.herokuapp.com/) is a web based application that can be used to earn rewards for performing well at Apex Legends. This application is very much in early days. The next upcoming feature is account creation!
+  Rewardpex [(Live app here)](https://gaming-project.herokuapp.com/) is a web based application that can be used to earn rewards for performing well at Apex Legends. This application is very much in early days. The next upcoming feature real rewards that can be redeemed at your favorite gaming brands!
 
   ## Table of Contents
   * [Installation](#installation)
