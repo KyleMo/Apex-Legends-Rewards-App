@@ -92,7 +92,7 @@ const registerLinkedAccount = asyncHandler(async (req, res) => {
       email: user.email,
       password: user.password,
       token: generateToken(user._id),
-      linkedAccounts: user.linkedAccounts
+      linkedAccounts: userToUpdate.linkedAccounts
     })
   } else {
     res.status(400)

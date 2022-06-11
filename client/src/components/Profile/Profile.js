@@ -5,7 +5,6 @@ import './profile.css';
 
 const Profile = () => {
 
-
   const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
   const [playerData, setPlayerData] = React.useState(null);
   const [selectState, setSelectState] = React.useState("");
@@ -21,25 +20,22 @@ const Profile = () => {
     if(e.target.value){
 
       setSelectState(e.target.value)
+      setLoading(true)
 
       const username = e.target.value.replace(/\s+/g,'').split("|")[0];
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
 
-      fetch(`/api/data/player?platform=${platform}&username=${username}`)
-        .then(res => {
-          return res.json()
-        })
-        .then(data => {
-          setPlayerData(data)
-        })
+      //get player gamertag
+      const responseUserData = await fetch(`http://localhost:8080/api/data/player?platform=${platform}&username=${username}`)
+      const userDataJSON = await responseUserData.json()
+      setPlayerData(userDataJSON)
 
-      fetch(`/api/data/sessions?platform=${platform}&username=${username}`)
-        .then(res => {
-          return res.json()
-        })
-        .then(data => {
-          setMatches(data)
-        })
+      //get player matches
+      const responseMatchesData = await fetch(`http://localhost:8080/api/data/sessions?platform=${platform}&username=${username}`)
+      const matchesDataJSON = await responseMatchesData.json()
+      setMatches(matchesDataJSON)
+      setLoading(false)
+
     } else {
       setPlayerData(null)
     }
@@ -63,19 +59,20 @@ const Profile = () => {
 
   const displayRow = matches.map((match, index) => {
     function checkRewardAvailability(match){
-      return match.stats.kills.value >= 5 ? true : false
+      return match.data.stats?.kills?.value >= 5 ? true : false
     }
 
     return (
-      <tr key={match.id}>
+      <tr key={match.data?.id}>
         <td>{index+1}</td>
-        <td>{parseDate(match.metadata.endDate.value)}</td>
-        <td>{match.stats.kills.value}</td>
-        <td>{match.stats.rankScore.value}</td>
+        <td>{parseDate(match.data.metadata?.endDate?.value)}</td>
+        <td>{match.data.stats?.kills?.value}</td>
+        <td>{match.data.stats?.rankScore?.value}</td>
         <td>{checkRewardAvailability(match)?<button className="reward-button">Claim Reward</button>:""}</td>
       </tr>
     )
   })
+
 
 //Custom drop down selection
   const Dropdown = (props) => {

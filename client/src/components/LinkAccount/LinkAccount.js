@@ -45,7 +45,7 @@ const LinkAccount = () => {
     if(linkedData.platform !== "" && linkedData.platformUserIdentifier !== ""){
       setValidInput(true);
       setLoading(true);
-      fetch(`https://rewardpex.herokuapp.com/api/data/player?platform=${linkedData.platform}&username=${linkedData.platformUserIdentifier}`)
+      fetch(`/api/data/player?platform=${linkedData.platform}&username=${linkedData.platformUserIdentifier}`)
         .then(res => {
           return res.json()
         })

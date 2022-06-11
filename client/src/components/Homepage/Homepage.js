@@ -51,6 +51,7 @@ const Homepage = () => {
   }
 
   const getData = () => {
+    setErrorMessage(false)
     if(searchData.platform !== "" && searchData.platformUserIdentifier !== ""){
       setValidInput(true);
       setLoading(true);
@@ -112,24 +113,22 @@ const handleRewardClick = () => {
   }
 }
 
-const displayMatchRows = matches.map((match,index) => {
-
   //dummy data to populate if reward is available
-  function checkRewardAvailability(matchData){
-
-    if (matchData.stats.kills.value >= 5) {
-      return true
-    } else {
-      return false
-    }
+function checkRewardAvailability(matchData){
+  if (matchData.data.stats?.kills?.value >= 5) {
+    return true
+  } else {
+    return false
   }
+}
 
+const displayMatchRows = matches.map((match,index) => {
   return (
-    <tr key={match.id}>
+    <tr key={match.data.id}>
       <td>{index+1}</td>
-      <td>{parseDate(match.metadata.endDate.value)}</td>
-      <td>{match.stats.kills.value}</td>
-      <td>{match.stats.rankScore.value}</td>
+      <td>{parseDate(match.data.metadata?.endDate?.value)}</td>
+      <td>{match.data.stats?.kills?.value}</td>
+      <td>{match.data.stats?.rankScore?.value}</td>
       <td>{checkRewardAvailability(match)?<button onClick={handleRewardClick} className="reward-button">Claim Reward</button>:""}</td>
     </tr>
   )
