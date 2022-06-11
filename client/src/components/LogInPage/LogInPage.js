@@ -8,6 +8,7 @@ import {useNavigate} from 'react-router-dom';
 
 const LogInPage = () => {
 
+  const [useDemo, setUseDemo] = React.useState(false)
   const [error, setError] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
   const [logInDetails, setLogInDetails] = React.useState({
@@ -16,9 +17,24 @@ const LogInPage = () => {
   })
   const navigate = useNavigate();
 
+  const handleCheckbox = (e) => {
+    setUseDemo(prev => !prev)
+    if(!useDemo){
+      setLogInDetails({
+        email: "testemail@gmail.com",
+        password: "hirekyle123"
+      })
+    } else {
+      setLogInDetails({
+        email: "",
+        password: ""
+      })
+    }
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
+
     try {
       const config = {
         headers: {
@@ -29,10 +45,14 @@ const LogInPage = () => {
       const { data } = await axios.post('/api/users/login', logInDetails, config)
       localStorage.setItem('userLogin', JSON.stringify(data))
       setLoading(false)
+      setLogInDetails({email: "", password:""})
+      setUseDemo(false)
       navigate("/profile")
 
     } catch (e) {
       setLoading(false)
+      setLogInDetails({email: "", password:""})
+      setUseDemo(false)
       setError(e.response.data.message)
     }
   }
@@ -48,7 +68,7 @@ const LogInPage = () => {
 
   return(
     <div className="log-in-page">
-      {loading ? <div className="load-div"><Loading /></div>: <LogInForm logInDetails={logInDetails} handleChange={handleChange} handleSubmit={handleSubmit}/>}
+      {loading ? <div className="load-div"><Loading /></div>: <LogInForm logInDetails={logInDetails} handleChange={handleChange} handleSubmit={handleSubmit} handleCheckbox={handleCheckbox} useDemo={useDemo}/>}
       {error && <div className="login-error"><Error message={error}/></div>}
     </div>
   )
