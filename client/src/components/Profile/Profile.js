@@ -16,11 +16,10 @@ const Profile = () => {
     setUserData(JSON.parse(localStorage.getItem('userLogin')))
   },[location])
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     if(e.target.value){
 
       setSelectState(e.target.value)
-      setLoading(true)
 
       const username = e.target.value.replace(/\s+/g,'').split("|")[0];
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
@@ -34,7 +33,6 @@ const Profile = () => {
       const responseMatchesData = await fetch(`http://localhost:8080/api/data/sessions?platform=${platform}&username=${username}`)
       const matchesDataJSON = await responseMatchesData.json()
       setMatches(matchesDataJSON)
-      setLoading(false)
 
     } else {
       setPlayerData(null)
