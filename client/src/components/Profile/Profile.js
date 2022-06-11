@@ -25,12 +25,12 @@ const Profile = () => {
       const platform = e.target.value.replace(/\s+/g,'').split("|")[1];
 
       //get player gamertag
-      const responseUserData = await fetch(`http://localhost:8080/api/data/player?platform=${platform}&username=${username}`)
+      const responseUserData = await fetch(`/api/data/player?platform=${platform}&username=${username}`)
       const userDataJSON = await responseUserData.json()
       setPlayerData(userDataJSON)
 
       //get player matches
-      const responseMatchesData = await fetch(`http://localhost:8080/api/data/sessions?platform=${platform}&username=${username}`)
+      const responseMatchesData = await fetch(`/api/data/sessions?platform=${platform}&username=${username}`)
       const matchesDataJSON = await responseMatchesData.json()
       setMatches(matchesDataJSON)
 
