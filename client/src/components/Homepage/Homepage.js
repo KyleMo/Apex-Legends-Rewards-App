@@ -114,13 +114,6 @@ const handleRewardClick = () => {
 }
 
   //dummy data to populate if reward is available
-function checkRewardAvailability(matchData){
-  if (matchData.data.stats?.kills?.value >= 5) {
-    return true
-  } else {
-    return false
-  }
-}
 
 const displayMatchRows = matches.map((match,index) => {
   return (
@@ -129,7 +122,7 @@ const displayMatchRows = matches.map((match,index) => {
       <td>{parseDate(match.data.metadata?.endDate?.value)}</td>
       <td>{match.data.stats?.kills?.value}</td>
       <td>{match.data.stats?.rankScore?.value}</td>
-      <td>{checkRewardAvailability(match)?<button onClick={handleRewardClick} className="reward-button">Claim Reward</button>:""}</td>
+      <td>{match.earnedReward ? <button onClick={handleRewardClick} className="reward-button">Claim Reward</button> : ""}</td>
     </tr>
   )
 })

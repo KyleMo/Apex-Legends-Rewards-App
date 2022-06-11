@@ -56,9 +56,6 @@ const Profile = () => {
   }
 
   const displayRow = matches.map((match, index) => {
-    function checkRewardAvailability(match){
-      return match.data.stats?.kills?.value >= 5 ? true : false
-    }
 
     return (
       <tr key={match.data?.id}>
@@ -66,7 +63,7 @@ const Profile = () => {
         <td>{parseDate(match.data.metadata?.endDate?.value)}</td>
         <td>{match.data.stats?.kills?.value}</td>
         <td>{match.data.stats?.rankScore?.value}</td>
-        <td>{checkRewardAvailability(match)?<button className="reward-button">Claim Reward</button>:""}</td>
+        <td>{match.earnedReward?<button onClick={handleRewardClick} className="reward-button">Claim Reward</button>:""}</td>
       </tr>
     )
   })

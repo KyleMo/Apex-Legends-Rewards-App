@@ -1,6 +1,7 @@
 import express from 'express'
 import asyncHandler from 'express-async-handler'
 import axios from 'axios'
+import determineReward from '../utils/determineReward.js'
 
 const getSessions = asyncHandler(async (req, res) => {
 
@@ -17,10 +18,12 @@ const getSessions = asyncHandler(async (req, res) => {
       const sessions = response.data.data.items;
       for (let i = 0; i < sessions.length; i++){
         for (let j =0; j < sessions[i].matches.length; j++){
+          const matchStats = sessions[i].matches[j].stats
           if (matches.length < 15){
             const matchObject = {
               data: sessions[i].matches[j],
-              rewardRedeemed: false
+              rewardRedeemed: false,
+              earnedReward: determineReward(matchStats.kills.value,matchStats.rankScoreChange.value)
             }
             matches.push(matchObject);
           }
