@@ -23,7 +23,7 @@ const getSessions = asyncHandler(async (req, res) => {
             const matchObject = {
               data: sessions[i].matches[j],
               rewardRedeemed: false,
-              earnedReward: determineReward(matchStats.kills.value,matchStats.rankScoreChange.value)
+              earnedReward: determineReward(matchStats?.kills?.value,matchStats?.rankScoreChange?.value)
             }
             matches.push(matchObject);
           }

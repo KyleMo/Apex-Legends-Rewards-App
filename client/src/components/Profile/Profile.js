@@ -2,9 +2,11 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './profile.css';
+import Confetti from 'react-confetti'
 
 const Profile = () => {
 
+  const [confetti, setConfetti] = React.useState(false)
   const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')));
   const [playerData, setPlayerData] = React.useState(null);
   const [selectState, setSelectState] = React.useState("");
@@ -15,6 +17,14 @@ const Profile = () => {
   React.useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem('userLogin')))
   },[location])
+
+  const handleRewardClick = () => {
+      setConfetti(true)
+      setTimeout(() => {
+        setConfetti(false)
+      },5000)
+
+  }
 
   const handleChange = async (e) => {
     if(e.target.value){
@@ -91,6 +101,7 @@ const Profile = () => {
   return(
     <main className="profile">
       <div className="profile-container">
+      {confetti && <Confetti width={window.innerWidth} height={window.innerHeight} tweenDuration={2000}/>}
         <aside className="profile-details">
           <div className="profile-info-container">
             {userData && <img className="profile-pic" src={userData.pic}></img>}
