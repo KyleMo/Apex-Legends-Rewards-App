@@ -16,13 +16,14 @@ const getSessions = asyncHandler(async (req, res) => {
       let matches = []
       const sessions = response.data.data.items;
       for (let i = 0; i < sessions.length; i++){
-        for (let j =0; j < sessions[i].matches.length; j++)
+        for (let j =0; j < sessions[i].matches.length; j++){
           if (matches.length < 15){
             const matchObject = {
               data: sessions[i].matches[j],
               rewardRedeemed: false
             }
             matches.push(matchObject);
+          }
         }
       }
       res.json(matches);
