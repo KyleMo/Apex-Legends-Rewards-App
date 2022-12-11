@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint --fix ./*.js"
   },
   "engines": {
     "node": "v16.14.0",
@@ -36,5 +37,13 @@
     "react-confetti": "^6.1.0",
     "react-router-dom": "^6.3.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11"
+  }
 }

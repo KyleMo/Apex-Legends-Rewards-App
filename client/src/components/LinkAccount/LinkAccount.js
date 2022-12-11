@@ -10,8 +10,7 @@ import axios from 'axios'
 const LinkAccount = () => {
 
   const navigate = useNavigate();
-  const [searchedPlayerData, setSearchPlayerData] = React.useState(null)
-  const [userData, setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')))
+  const userData = React.useState(JSON.parse(localStorage.getItem('userLogin')))
   const [linkedData, setLinkedData] = React.useState({
     platformUserIdentifier: "",
     platform: ""

@@ -1,18 +1,15 @@
 import React from 'react'
-import styles from './homepage.css'
 import Searchbar from './Searchbar.js'
 import MatchesTable from './MatchesTable.js'
 import ErrorMessage from './ErrorMessage.js'
 import Loading from './Loading.js'
-import apexImage from '../../images/apexImage.jpg'
-import axios from 'axios';
 import Confetti from 'react-confetti'
 import { useNavigate } from 'react-router-dom'
 
 const Homepage = () => {
 
   const [confetti, setConfetti] = React.useState(false)
-  const [userData,setUserData] = React.useState(JSON.parse(localStorage.getItem('userLogin')))
+  const [userData] = React.useState(JSON.parse(localStorage.getItem('userLogin')))
   const [searchData, setSearchData] = React.useState({
     platform: "",
     platformUserIdentifier: ""

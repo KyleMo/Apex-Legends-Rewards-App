@@ -19,7 +19,7 @@ const Navbar = () => {
     setUserData(null)
     localStorage.removeItem('userLogin')
     // if location == homepage then window location resfrsh
-    if (location.pathname == "/"){
+    if (location.pathname === "/"){
       window.location.reload(false)
     }
     navigate("/")
@@ -28,13 +28,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-headers">
-        <img className="logo" src={logo}></img>
+        <img alt="Rewardpex" className="logo" src={logo}></img>
         <h2 className="navbar-header">Rewardpex</h2>
       </Link>
       <ul className="navbar-links">
         {userData && <Link to="/profile"><li>Profile</li></Link>}
         <Link to="/how-it-works"><li>How it works</li></Link>
-        {userData ? <a onClick={handleLogout}><li className="log-out">Log out</li></a> : <Link to="/login"><li>Log in</li></Link>}
+        {userData ? <div onClick={handleLogout}><li className="log-out">Log out</li></div> : <Link to="/login"><li>Log in</li></Link>}
       </ul>
 
     </nav>

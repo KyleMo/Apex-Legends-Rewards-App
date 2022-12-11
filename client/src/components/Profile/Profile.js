@@ -104,9 +104,9 @@ const Profile = () => {
       {confetti && <Confetti width={window.innerWidth} height={window.innerHeight} tweenDuration={2000}/>}
         <aside className="profile-details">
           <div className="profile-info-container">
-            {userData && <img className="profile-pic" src={userData.pic}></img>}
+            {userData && <img alt='profile-pic' className="profile-pic" src={userData.pic}></img>}
             {userData && <h1 className="profile-username">{userData.username}</h1>}
-            {(userData && userData.linkedAccounts.length != 0) && <Dropdown linkedAccounts={userData.linkedAccounts}/>}
+            {(userData && userData.linkedAccounts.length !== 0) && <Dropdown linkedAccounts={userData.linkedAccounts}/>}
             {(userData && userData.linkedAccounts.length >=1) ? <Link to='/link-account'>Link another account</Link> : <Link to='/link-account'>Link a gaming account</Link>}
           </div>
           <div className="profile-data-container">
