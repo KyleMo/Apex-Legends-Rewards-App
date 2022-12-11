@@ -1,13 +1,12 @@
 .main-content-1{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
   background-image: url('https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 
 .hero {
   margin: 30px 10%;
