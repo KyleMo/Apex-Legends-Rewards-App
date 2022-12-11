@@ -125,7 +125,17 @@ const displayMatchRows = matches.map((match,index) => {
 })
 
   return (
-    <div className="main-content-1">
+    <div className="main-content-1"
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundImage: 'url(\'https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-section-bg-about-scenery-beige-xl.jpg.adapt.1920w.jpg\')',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
         {confetti && <Confetti width={window.innerWidth} height={window.innerHeight} tweenDuration={2000}/>}
         <h1 className="hero">Play Apex Legends and get rewarded!</h1>
         <p className="instructions">Select your platform (ex: Origin) then type in your username (ex: chaoticbutpc).</p>
