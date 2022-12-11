@@ -8,17 +8,17 @@ import { fileURLToPath } from 'url'
 import connectDB from './config/db.js'
 import { errorHandler } from './middlewares/errorMiddleware.js'
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-connectDB();
+connectDB()
 
-const app = express();
+const app = express()
 app.use(express.json())
 
-app.use('/api/data', dataRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/data', dataRoutes)
+app.use('/api/users', userRoutes)
 app.use(express.static(path.resolve(__dirname, '../client/build')))
 app.use(errorHandler)
 
