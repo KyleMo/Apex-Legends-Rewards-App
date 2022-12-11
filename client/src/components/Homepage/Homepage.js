@@ -125,7 +125,7 @@ const displayMatchRows = matches.map((match,index) => {
 })
 
   return (
-    <main className="main-content-1">
+    <main id="main-content-1" className="main-content-1">
         {confetti && <Confetti width={window.innerWidth} height={window.innerHeight} tweenDuration={2000}/>}
         <h1 className="hero">Play Apex Legends and get rewarded!</h1>
         <p className="instructions">Select your platform (ex: Origin) then type in your username (ex: chaoticbutpc).</p>
